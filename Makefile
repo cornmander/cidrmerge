@@ -2,9 +2,7 @@
 CC=gcc
 
 #Usual gcc flags
-CC_FLAGS=-O3 -fPIC -g -c -Wall -W
-#Enforce ansi compatibility
-CC_FLAGS+= -ansi -pedantic
+CC_FLAGS=-O2 -fPIC -g -c -Wall -W
 #Pack struct: this will reduce significantly memory usage (- 30%), but some platform cannot handle not aligned to word integers (SIGBUS will be generated in this case). It can cause incompatibility with code compiled without this flag too and program to be slower in some cases, it needs test on target system.
 #CC_FLAGS+=-fpack-struct
 #cpu dependant, configure accordingly to final running machine. It can increase significantly performances
@@ -19,7 +17,7 @@ LINK_FLAGS=
 #LINK_FLAGS+=-pg
 
 #Standard defines
-STD_DEFINES=-D OPTIMIZED_SORT -D INLINE -D CHAR_PREFIX
+STD_DEFINES=
 #timestamp.out generation
 #STD_DEFINES+=-D TIMESTAMP
 #I/O definition: UNIX_IO defined, read/write used. If not, fread/fwrite is used
